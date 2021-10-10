@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polyharmonia", "Polyharmonia\Polyharmonia.csproj", "{F3EDDA83-7E26-4E24-8C3C-4268B942ADE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3EDDA83-7E26-4E24-8C3C-4268B942ADE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EDDA83-7E26-4E24-8C3C-4268B942ADE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EDDA83-7E26-4E24-8C3C-4268B942ADE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EDDA83-7E26-4E24-8C3C-4268B942ADE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9440F67-21D7-4531-B213-6B0DD2E59B0A}
+	EndGlobalSection
+EndGlobal
