@@ -46,6 +46,8 @@
             this.middleBankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowerBankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDecision2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.ChkR2K3 = new System.Windows.Forms.CheckBox();
             this.ChkR2K2 = new System.Windows.Forms.CheckBox();
             this.ChkR2K1 = new System.Windows.Forms.CheckBox();
@@ -57,6 +59,8 @@
             this.numChannel1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtDecision1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.ChkR1K3 = new System.Windows.Forms.CheckBox();
             this.ChkR1K2 = new System.Windows.Forms.CheckBox();
             this.ChkR1K1 = new System.Windows.Forms.CheckBox();
@@ -68,7 +72,9 @@
             this.numChannel2 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDecision0 = new System.Windows.Forms.TextBox();
             this.ChkR0K3 = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.ChkR0K2 = new System.Windows.Forms.CheckBox();
             this.ChkR0K1 = new System.Windows.Forms.CheckBox();
             this.ChkR0K0 = new System.Windows.Forms.CheckBox();
@@ -78,16 +84,10 @@
             this.numOctave3 = new System.Windows.Forms.NumericUpDown();
             this.numChannel3 = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtDecision2 = new System.Windows.Forms.TextBox();
-            this.txtDecision1 = new System.Windows.Forms.TextBox();
-            this.txtDecision0 = new System.Windows.Forms.TextBox();
             this.tmrSensitivityDelay = new System.Windows.Forms.Timer(this.components);
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.sldKeyDelay = new System.Windows.Forms.TrackBar();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtKeyDelOut = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numVelocity1)).BeginInit();
@@ -101,7 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numVelocity3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOctave3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numChannel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sldKeyDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -247,6 +247,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Upper Rank";
             // 
+            // txtDecision2
+            // 
+            this.txtDecision2.Location = new System.Drawing.Point(164, 74);
+            this.txtDecision2.Name = "txtDecision2";
+            this.txtDecision2.ReadOnly = true;
+            this.txtDecision2.Size = new System.Drawing.Size(100, 20);
+            this.txtDecision2.TabIndex = 12;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(180, 58);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Decision";
+            // 
             // ChkR2K3
             // 
             this.ChkR2K3.AutoSize = true;
@@ -359,6 +376,23 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Middle Rank";
+            // 
+            // txtDecision1
+            // 
+            this.txtDecision1.Location = new System.Drawing.Point(164, 74);
+            this.txtDecision1.Name = "txtDecision1";
+            this.txtDecision1.ReadOnly = true;
+            this.txtDecision1.Size = new System.Drawing.Size(100, 20);
+            this.txtDecision1.TabIndex = 13;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(180, 58);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Decision";
             // 
             // ChkR1K3
             // 
@@ -473,6 +507,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Lower";
             // 
+            // txtDecision0
+            // 
+            this.txtDecision0.Location = new System.Drawing.Point(164, 74);
+            this.txtDecision0.Name = "txtDecision0";
+            this.txtDecision0.ReadOnly = true;
+            this.txtDecision0.Size = new System.Drawing.Size(100, 20);
+            this.txtDecision0.TabIndex = 14;
+            // 
             // ChkR0K3
             // 
             this.ChkR0K3.AutoSize = true;
@@ -483,6 +525,15 @@
             this.ChkR0K3.Text = "Key 4";
             this.ChkR0K3.UseVisualStyleBackColor = true;
             this.ChkR0K3.CheckedChanged += new System.EventHandler(this.changedCheckBox);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(180, 58);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 13);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Decision";
             // 
             // ChkR0K2
             // 
@@ -565,63 +616,17 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Channel";
             // 
-            // label10
+            // sldKeyDelay
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(180, 58);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 13);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Decision";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(180, 58);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Decision";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(180, 58);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Decision";
-            // 
-            // txtDecision2
-            // 
-            this.txtDecision2.Location = new System.Drawing.Point(164, 74);
-            this.txtDecision2.Name = "txtDecision2";
-            this.txtDecision2.ReadOnly = true;
-            this.txtDecision2.Size = new System.Drawing.Size(100, 20);
-            this.txtDecision2.TabIndex = 12;
-            // 
-            // txtDecision1
-            // 
-            this.txtDecision1.Location = new System.Drawing.Point(164, 74);
-            this.txtDecision1.Name = "txtDecision1";
-            this.txtDecision1.ReadOnly = true;
-            this.txtDecision1.Size = new System.Drawing.Size(100, 20);
-            this.txtDecision1.TabIndex = 13;
-            // 
-            // txtDecision0
-            // 
-            this.txtDecision0.Location = new System.Drawing.Point(164, 74);
-            this.txtDecision0.Name = "txtDecision0";
-            this.txtDecision0.ReadOnly = true;
-            this.txtDecision0.Size = new System.Drawing.Size(100, 20);
-            this.txtDecision0.TabIndex = 14;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 316);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(843, 45);
-            this.trackBar1.TabIndex = 7;
+            this.sldKeyDelay.LargeChange = 4;
+            this.sldKeyDelay.Location = new System.Drawing.Point(12, 316);
+            this.sldKeyDelay.Maximum = 22;
+            this.sldKeyDelay.Minimum = 2;
+            this.sldKeyDelay.Name = "sldKeyDelay";
+            this.sldKeyDelay.Size = new System.Drawing.Size(843, 45);
+            this.sldKeyDelay.TabIndex = 7;
+            this.sldKeyDelay.Value = 10;
+            this.sldKeyDelay.Scroll += new System.EventHandler(this.sldKeyDelay_Scroll);
             // 
             // label13
             // 
@@ -632,21 +637,21 @@
             this.label13.TabIndex = 8;
             this.label13.Text = "Key Delay";
             // 
-            // textBox1
+            // txtKeyDelOut
             // 
-            this.textBox1.Location = new System.Drawing.Point(758, 290);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtKeyDelOut.Location = new System.Drawing.Point(758, 290);
+            this.txtKeyDelOut.Name = "txtKeyDelOut";
+            this.txtKeyDelOut.Size = new System.Drawing.Size(100, 20);
+            this.txtKeyDelOut.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtKeyDelOut);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.sldKeyDelay);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -674,7 +679,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numVelocity3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOctave3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numChannel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sldKeyDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -738,9 +743,9 @@
         private System.Windows.Forms.TextBox txtDecision0;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Timer tmrSensitivityDelay;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar sldKeyDelay;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtKeyDelOut;
     }
 }
 

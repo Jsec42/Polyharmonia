@@ -170,6 +170,7 @@ namespace Polyharmonia
             Form1.ActiveForm.KeyDown += music_engine.keyDownEvent;
             Form1.ActiveForm.KeyUp += music_engine.keyUpEvent;
             music_engine.display_callback = updateDisplay;
+            sldKeyDelay_Scroll(sender, e);
         }
         private void updateDisplay()
         {
@@ -212,6 +213,12 @@ namespace Polyharmonia
                 music_engine.ranks[2].changeKey();
             }
 
+        }
+
+        private void sldKeyDelay_Scroll(object sender, EventArgs e)
+        {
+            music_engine.keyChange_timer.Interval = sldKeyDelay.Value;
+            txtKeyDelOut.Text = sldKeyDelay.Value + "ms";
         }
     }
 }

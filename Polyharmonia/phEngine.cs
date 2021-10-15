@@ -246,6 +246,7 @@ namespace Polyharmonia
             {
 
                 decision = (keys[0] ? 1 : 0) + (keys[1] ? 2 : 0) + (keys[2] ? 4 : 0) + (keys[3] ? 8 : 0);
+                /*
                 switch (decision)
                 {
                     case 1:
@@ -286,6 +287,49 @@ namespace Polyharmonia
                         _base_interval = phMidi.intervals.i7;
                         break;
                     case 8:
+                        _base_interval = phMidi.intervals.i1.octave(1);
+                        break;
+                }
+                */
+                switch (decision)
+                {
+                    case 1:
+                        _base_interval = phMidi.intervals.i1;
+                        break;
+                    case 2:
+                        _base_interval = phMidi.intervals.i2.minor;
+                        break;
+                    case 3:
+                        _base_interval = phMidi.intervals.i2;
+                        break;
+                    case 6:
+                        _base_interval = phMidi.intervals.i3.minor;
+                        break;
+                    case 7:
+                        _base_interval = phMidi.intervals.i3;
+                        break;
+                    case 5:
+                        _base_interval = phMidi.intervals.i4;
+                        break;
+                    case 4:
+                        _base_interval = phMidi.intervals.i5.minor;
+                        break;
+                    case 13:
+                        _base_interval = phMidi.intervals.i5;
+                        break;
+                    case 14:
+                        _base_interval = phMidi.intervals.i6.minor;
+                        break;
+                    case 15:
+                        _base_interval = phMidi.intervals.i6;
+                        break;
+                    case 10:
+                        _base_interval = phMidi.intervals.i7.minor;
+                        break;
+                    case 11:
+                        _base_interval = phMidi.intervals.i7;
+                        break;
+                    case 9:
                         _base_interval = phMidi.intervals.i1.octave(1);
                         break;
                 }
@@ -549,6 +593,9 @@ namespace Polyharmonia
         Keys lastKeyCode = 0;
         public delegate void type_display_callback();
         public type_display_callback display_callback;
+        public Timer keyChange_timer;
+        private delegate void updateEvent();
+        private List<updateEvent> currentEvents;
         public ref instrumentDatabase.instrument[] rank_instruments { get
             {
                 _rank_instruments = new instrumentDatabase.instrument[3];
@@ -560,7 +607,7 @@ namespace Polyharmonia
                 return ref _rank_instruments;
             }
         }
-        public Polyharmonia_engine(phMidi root_interface, Polyharmonia_Keys new_keymap)
+        public Polyharmonia_engine(phMidi root_interface, Polyharmonia_Keys new_keymap, int initial_interval = 10)
         {
             for(int i = 0; i<3; i++)
             {
@@ -572,6 +619,10 @@ namespace Polyharmonia
             key_handler.interval_Event = interval_change_event;
             key_handler.preset_Event = preset_event;
             key_handler.rank_event = rank_event;
+            keyChange_timer = new Timer();
+            keyChange_timer.Interval = initial_interval;
+            keyChange_timer.Tick += runCurrentEvents;
+            currentEvents = new List<updateEvent>();
         }
         public void updateRankInstruments()
         {
@@ -666,8 +717,11 @@ namespace Polyharmonia
             {
                 if (!transpose_ready)
                 {
+                    keyChange_timer.Stop();
                     cRank.keys[key_index] = value;
-                    cRank.changeKey();
+                    if (!currentEvents.Contains(cRank.changeKey))
+                        currentEvents.Add(cRank.changeKey);
+                    keyChange_timer.Start();
                 }
                 else
                 {
@@ -680,7 +734,8 @@ namespace Polyharmonia
         }
         public void interval_change_event(int interval_key_index, bool value)
         {
-            for(int i=0; i<ranks.Length; i++)
+            keyChange_timer.Stop();
+            for (int i=0; i<ranks.Length; i++)
             {
                 ref rank cRank = ref ranks[i];
                 if (interval_key_index == -1)
@@ -690,9 +745,11 @@ namespace Polyharmonia
                 else
                 {
                     cRank.interval_keys[interval_key_index] = value;
-                    cRank.changeInterval();
                 }
+                if (!currentEvents.Contains(cRank.changeInterval))
+                    currentEvents.Add(cRank.changeInterval);
             }
+            keyChange_timer.Start();
             if (display_callback != null)
                 display_callback();
         }
@@ -748,6 +805,12 @@ namespace Polyharmonia
         {
             SaveFileDialog source = (SaveFileDialog)sender;
 
+        }
+        private void runCurrentEvents(object sender, EventArgs e)
+        {
+            ((Timer)sender).Stop();
+            foreach (updateEvent u in currentEvents)
+                u();
         }
     }
 }
